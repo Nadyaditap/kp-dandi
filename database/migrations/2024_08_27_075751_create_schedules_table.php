@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pendaftarans', function (Blueprint $table) {
+        Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('jabatan');
-            $table->string('status_kerja');
+            $table->foreignId('pendaftaran_id')->references('id')->on('pendaftarans')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('outlet');
+            $table->string('shift');
+            $table->string('jam_masuk');
+            $table->string('hari');
+            $table->string('tanggal');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pendaftarans');
+        Schema::dropIfExists('schedules');
     }
 };

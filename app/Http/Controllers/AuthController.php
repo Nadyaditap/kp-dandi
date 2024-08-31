@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Auth;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -13,19 +16,21 @@ class AuthController extends Controller
         return view('login');
     }
 
-    public function proses_login(Request $request)
+    public function loginUser(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
-
-        $credentials = $request->only('email','password');
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/dashboard')->with('message','Signed in');
+        $user = User::where('email', $request->email)->first();
+        if(!Hash::check($request->password, $user?->password)){
+            throw ValidationException::withMessages([
+                'password' => 'These credentials do not match our records'
+            ]);
         }
+        Auth::login($user);
 
-        return redirect('/')->with('message','Login tidak valid');
+        return to_route('dashboard');
     }
 
     public function logout(Request $request)

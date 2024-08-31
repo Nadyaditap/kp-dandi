@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="">
 
-    <title>Sign In</title>
+    <title>Register</title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500"
@@ -54,20 +54,28 @@
                     </div>
 
                     <div class="card-body p-5">
-                        <h4 class="text-dark mb-5">Sign In</h4>
+                        <h4 class="text-dark mb-5">Register Account</h4>
                         @if (Session::has('message'))
                             <div class="alert alert-danger" role="alert">
                                 {{ Session::get('message') }}
                             </div>
                         @endif
 
-                        <form action="{{ route('login') }}" method="POST">
+                        <form action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
+                                    <input type="text" class="form-control" id="validationServerUsername"
+                                        placeholder="Name" name="name" aria-describedby="inputGroupPrepend3" />
+
+                                    @if ($errors->has('name'))
+                                        <div style="color: red; margin-top: 2px">{{ $errors->first('name') }}</div>
+                                    @endif
+                                </div>
+                                <div class="form-group col-md-12 mb-4">
                                     <input type="email" class="form-control" id="validationServerUsername"
                                         placeholder="Email" name="email" aria-describedby="inputGroupPrepend3">
-                                    @if ($errors->has('email'))
+                                        @if ($errors->has('email'))
                                         <div style="color: red; margin-top: 2px">{{ $errors->first('email') }}</div>
                                     @endif
                                 </div>
@@ -75,17 +83,19 @@
                                 <div class="form-group col-md-12 ">
                                     <input type="password" class="form-control" id="validationServerUsername"
                                         placeholder="Password" name="password" aria-describedby="inputGroupPrepend3">
-                                    @if ($errors->has('password'))
+                                        @if ($errors->has('password'))
                                         <div style="color: red; margin-top: 2px">{{ $errors->first('password') }}</div>
                                     @endif
                                 </div>
 
+                                <div class="form-group col-md-12 ">
+                                    <input type="password" name="password_confirmation" class="form-control"
+                                        id="validationServerUsername" placeholder="Password" name="Konfirmasi Password"
+                                        aria-describedby="inputGroupPrepend3">
+                                </div>
                                 <div class="col-md-12">
-
-
                                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign
-                                        In</button>
-
+                                        Up</button>
                                 </div>
                             </div>
                         </form>
