@@ -3,7 +3,7 @@
 @section('content')
     <div class="breadcrumb-wrapper breadcrumb-contacts">
         <div>
-            <h1>Jadwal Karyawan</h1>
+            <h1>JADWAL KARYAWAN</h1>
         </div>
 
         <div>
@@ -15,8 +15,7 @@
         <div class="col-lg-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom d-block">
-                    <h2>Jadwal karyawan</h2>
-                    <p>Form Jadwal karyawan</p>
+                    <h2>JADWAL SELURUH KARYAWAN</h2>
                 </div>
 
                 <div class="card-body">

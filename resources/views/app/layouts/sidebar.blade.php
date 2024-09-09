@@ -4,7 +4,7 @@
             <div>
               <a href="{{ url('dashboard') }}" style="display: flex; flex-direction: column; align-items: center">
                 <img src="{{asset('assets/img/Logo.png')}}" style="width: 130px;" alt="Merhaba Kebab" />
-                <p>Merhaba Kebab</p>
+                <p>MERHABA KEBAB</p>
               </a>
 
             </div>
@@ -29,12 +29,6 @@
                 </li>
                 </li>
 
-                <li class="has-sub expand">
-                  <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#menu"
-                    aria-expanded="false" aria-controls="dashboard">
-                    <i class="mdi mdi-account-details"></i>
-                    <span class="nav-text">Menu Baru</span> <b class="caret"></b>
-                  </a>
 
                   <ul class="collapse" id="menu" data-parent="#sidebar-menu">
                     <div class="sub-menu">

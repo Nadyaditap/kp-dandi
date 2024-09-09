@@ -7,7 +7,7 @@
     <div class="breadcrumb-wrapper breadcrumb-contacts">
 
         <div>
-            <h1>Data Karyawan</h1>
+            <h1>DATA KARYAWAN</h1>
         </div>
 
         <div>
@@ -21,8 +21,8 @@
         <div class="col-lg-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom d-block">
-                    <h2>Data Karyawan</h2>
-                    <p>Data seluruh karyawan Gril
+                    <h2>DATA SELURUH KARYAWAN</h2>
+                    <p>
                 </div>
 
 
