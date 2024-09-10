@@ -6,6 +6,7 @@
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom">
 				<h2>Tambah Daftar Karyawan</h2>
+
 			</div>
 
 			<div class="card-body">

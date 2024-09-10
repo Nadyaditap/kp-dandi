@@ -9,8 +9,15 @@ use Illuminate\Http\Request;
 class ScheduleController extends Controller
 {
     public function index(){
-        $employes = Schedule::with('pendaftaran')->get();
+        $employes = Schedule::query()->with('pendaftaran')->latest()->paginate(5);
         return view('Schedule.index', compact('employes'));
+    }
+    public function search(Request $request){
+        $search = $request->input("search");
+        $employes = Schedule::query()->with("pendaftaran")->whereHas('pendaftaran', function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        })->paginate(5);
+        return view('pendaftaran.index', compact('employes'));
     }
     public function create(){
         $employes = Pendaftaran::get();

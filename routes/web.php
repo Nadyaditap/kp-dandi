@@ -34,9 +34,12 @@ Route::get('/dashboard/home', [MasterController::class, 'show_data'])->middlewar
 Route::get('/jadwal-karyawan', [ScheduleController::class, 'index'])->middleware('auth')->name('schedule.index');
 Route::get('/jadwal-karyawan/create', [ScheduleController::class, 'create'])->middleware('auth')->name('schedule.create');
 Route::post('/jadwal-karyawan/store', [ScheduleController::class, 'store'])->middleware('auth')->name('schedule.store');
+Route::get('/jadwal-karyawan/cari', [PendaftaranController::class, 'search'])->name('schedule.search');
 
 // Pendaftaran
 Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran.index')->middleware('auth');
+Route::get('/pendaftaran/cari', [PendaftaranController::class, 'search'])->name('pendaftaran.search')->middleware('auth');
+
 Route::get('/pendaftaran/create', [PendaftaranController::class, 'create'])->name('pendaftaran.create')->middleware('auth');
 Route::post('/post', [PendaftaranController::class, 'store'])->name('pendaftaran.store')->middleware('auth');
 Route::get('/pendaftaran/edit/{id}', [PendaftaranController::class, 'edit'])->name('pendaftaran.edit')->middleware('auth');

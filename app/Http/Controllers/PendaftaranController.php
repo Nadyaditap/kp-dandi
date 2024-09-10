@@ -10,7 +10,12 @@ class PendaftaranController extends Controller
 {
     public function index()
     {
-        $employes = Pendaftaran::all();
+        $employes = Pendaftaran::latest()->paginate(5);
+        return view('pendaftaran.index', compact('employes'));
+    }
+
+    public function search(Request $request){
+        $employes = Pendaftaran::where('nama', 'like', '%' . $request->search . '%')->paginate(3);
         return view('pendaftaran.index', compact('employes'));
     }
 

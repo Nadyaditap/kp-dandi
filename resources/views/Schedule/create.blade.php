@@ -34,10 +34,8 @@
                             <label for="nama">Nama</label>
                             <select class="custom-select" name="pendaftaran_id" id="pendaftaran_id">
                                 @foreach ($employes as $employe)
-                                <option value={{$employe->id}}>{{$employe->nama}}</option>
+                                <option value="{{$employe->id}}">{{$employe->nama}}</option>
                                 @endforeach
-
-
                             </select>
                         </div>
 

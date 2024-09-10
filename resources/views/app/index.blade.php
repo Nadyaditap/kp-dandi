@@ -80,13 +80,22 @@
           ——— CONTENT WRAPPER
           ===================================== -->
             <div class="content-wrapper">
+
                 <div class="content">
+                    <h4 class="mb-5">Selamat datang Admin</h4>
                     <div class="d-flex flex row">
                         <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Total Pendaftaran</h5>
                                 <h1 class="card-text text-center">{{ $pendaftaran }}</h1>
                                 <p style="text-align: center; font-weight: bold;">Karyawan
+                            </div>
+                        </div>
+                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Total</h5>
+                                <h1 class="card-text text-center">{{ $jadwal }}</h1>
+                                <p style="text-align: center; font-weight: bold;">Jadwal
                             </div>
                         </div>
                     </div>

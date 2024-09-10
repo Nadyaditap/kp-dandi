@@ -10,6 +10,6 @@ class Schedule extends Model
     use HasFactory;
     protected $guarded = [];
     public function pendaftaran(){
-        return $this->belongsTo(Pendaftaran::class, 'id');
+        return $this->belongsTo(Pendaftaran::class);
     }
 }

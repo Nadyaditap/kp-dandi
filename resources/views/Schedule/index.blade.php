@@ -2,13 +2,16 @@
 
 @section('content')
     <div class="breadcrumb-wrapper breadcrumb-contacts">
-        <div>
-            <h1>JADWAL KARYAWAN</h1>
-        </div>
-
-        <div>
+        <div class="d-block">
+            <h1>Jadwal KARYAWAN</h1>
             <a class="btn btn-primary" href="{{ route('schedule.create') }}">Tambah Jadwal Karyawan</a>
-
+        </div>
+        <div class="d-flex">
+            <form class="form-inline" action="/jadwal-karyawan/cari" method="GET">
+                <label class="sr-only" for="inlineFormInputName2">Cari Pegawai</label>
+                <input type="text" class="form-control mb-2 mr-sm-2" name="search" id="inlineFormInputName2" placeholder="Jane Doe" />
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </form>
         </div>
     </div>
     <div class="row">
@@ -54,6 +57,12 @@
                         </tbody>
                     @endforeach
                     </table>
+                    Halaman : {{ $employes->currentPage() }} <br/>
+                    Jumlah Data : {{ $employes->total() }} <br/>
+                    Data Per Halaman : {{ $employes->perPage() }} <br/>
+                    <br/>
+
+                    {{ $employes->links('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>
